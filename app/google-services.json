@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "71503275410",
+    "project_id": "doitch-lilfall",
+    "storage_bucket": "doitch-lilfall.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71503275410:android:1d6a609def74ad5be74d4b",
+        "android_client_info": {
+          "package_name": "com.ilustris.doitch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71503275410-i2ei4ao093l6aj99hkt7jfm5n6eppiql.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCK2jpAY6VzvPE5nRLFc-2EzV-5mhmeKAU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71503275410-i2ei4ao093l6aj99hkt7jfm5n6eppiql.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
