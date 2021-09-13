@@ -27,7 +27,7 @@ class NewGroupBottomSheet(val context: Context, val sendGroup: (String) -> Unit)
 
                 saveButton.setOnClickListener {
                     sendGroup.invoke(groupName.text.toString())
-                    //dialog.dismiss()
+                    dialog.dismiss()
                 }
             }
         }.show()

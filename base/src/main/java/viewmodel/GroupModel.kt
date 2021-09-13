@@ -10,11 +10,15 @@ class GroupModel(presenter: BasePresenter<Group>): BaseModel<Group>(presenter) {
     override val path: String = "Group"
 
     override fun deserializeDataSnapshot(dataSnapshot: DocumentSnapshot): Group {
-        return dataSnapshot.toObject(Group::class.java)!!
+        return dataSnapshot.toObject(Group::class.java)!!.apply {
+            id = dataSnapshot.id
+        }
     }
 
     override fun deserializeDataSnapshot(dataSnapshot: QueryDocumentSnapshot): Group {
-        return dataSnapshot.toObject(Group::class.java)
+        return dataSnapshot.toObject(Group::class.java).apply {
+            id = dataSnapshot.id
+        }
     }
 
 }

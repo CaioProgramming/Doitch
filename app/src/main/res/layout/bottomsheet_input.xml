@@ -8,8 +8,8 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:layout_margin="@dimen/margin_default"
-            android:padding="@dimen/padding_default"
+            android:layout_margin="@dimen/margin_default_10dp"
+            android:padding="@dimen/padding_default_16dp"
             android:background="@color/transparent"
             android:id="@+id/group_name"
             app:layout_constraintTop_toTopOf="parent"
@@ -20,13 +20,12 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/save_button"
-            android:background="@drawable/button_background"
-            android:layout_margin="@dimen/margin_default"
-            android:padding="@dimen/padding_small"
-            app:cornerRadius="@dimen/radius_small"
+            android:layout_margin="@dimen/margin_default_10dp"
+            android:padding="@dimen/padding_default_16dp"
+            android:textColor="@color/md_white"
             android:text="Salvar"
             app:backgroundTint="@color/md_black"
-            android:textColor="@color/white"
+            app:cornerRadius="@dimen/radius_default_10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

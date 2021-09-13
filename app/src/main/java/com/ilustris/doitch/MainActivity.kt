@@ -6,11 +6,12 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import com.creat.motiv.utilities.RC_SIGN_IN
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
 import com.ilustris.doitch.binder.MainActBinder
 import com.ilustris.doitch.databinding.ActivityMainBinding
+import com.silent.ilustriscore.core.utilities.RC_SIGN_IN
+import com.silent.ilustriscore.core.utilities.getView
 import com.silent.ilustriscore.core.utilities.showSnackBar
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
@@ -39,7 +40,11 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         if (requestCode == RC_SIGN_IN && resultCode == Activity.RESULT_OK) {
           mainBinding.initView()
         } else {
-            showSnackBar(this,"Ocorreu um erro ao fazer login", Color.RED, Color.WHITE, mainBinding.viewBind.root)
+            getView().showSnackBar(message = "Ocorreu um erro ao fazer login",
+                backColor = Color.RED,
+                textColor = Color.WHITE, action = {
+                    signIn()
+                })
         }
     }
 

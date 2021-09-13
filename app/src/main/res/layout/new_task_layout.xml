@@ -3,37 +3,53 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="@drawable/button_background"
-        android:padding="@dimen/padding_default"
+        android:layout_marginVertical="@dimen/margin_default_10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/new_task"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginHorizontal="@dimen/margin_default_10dp"
+            android:background="@drawable/button_background"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_default"
-            android:padding="@dimen/padding_default"
-            android:backgroundTint="@color/material_grey100"
-            android:background="@drawable/button_background"
             android:hint="Nova tarefa"
+            android:maxLength="150"
+            android:padding="@dimen/padding_default_16dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/close_button"
+            app:layout_constraintEnd_toStartOf="@id/calendar_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageButton
+            android:id="@+id/calendar_button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/margin_default_10dp"
+            android:background="@drawable/button_background"
+            android:backgroundTint="?attr/secondaryColor"
+            android:foreground="?selectableItemBackground"
+            android:padding="@dimen/padding_default_16dp"
+            android:src="@drawable/ic_round_calendar_today_24"
+            android:stateListAnimator="@animator/list_animator"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/save_button"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/close_button"
-            android:layout_width="wrap_content"
+            android:id="@+id/save_button"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:padding="@dimen/padding_default"
-            app:backgroundTint="@color/md_black"
+            android:layout_marginHorizontal="@dimen/margin_default_10dp"
+            android:padding="@dimen/padding_default_16dp"
+            app:backgroundTint="@color/colorAccent"
+            app:cornerRadius="@dimen/radius_default_10dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:src="@drawable/ic_baseline_check_24"
+            app:layout_constraintBottom_toBottomOf="@id/new_task"
+            app:layout_constraintTop_toTopOf="@id/new_task"
             android:text="Salvar"
-            app:tint="@color/white" />
+            app:tint="@color/md_white" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

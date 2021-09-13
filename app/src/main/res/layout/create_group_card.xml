@@ -2,21 +2,19 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/create_group_button"
-        android:background="@drawable/button_background"
-        android:backgroundTint="?android:textColorPrimary"
-        android:textColor="?android:colorBackground"
-        android:drawableLeft="@drawable/ic_baseline_add_24"
-        android:layout_margin="@dimen/padding_default"
-        android:padding="@dimen/padding_default"
-        android:text="Criar novo grupo de tarefas"
+        app:backgroundTint="@color/md_black"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_margin="@dimen/padding_default_16dp"
+        android:padding="@dimen/padding_default_16dp"
+        android:textColor="@color/md_white"
+        app:cornerRadius="@dimen/radius_big_20dp"
+        app:icon="@drawable/ic_baseline_add_24"
         android:gravity="center"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-    </TextView>
+        app:iconGravity="textTop"
+        app:iconTint="@color/md_white" />
 </layout>
