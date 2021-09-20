@@ -51,7 +51,7 @@ class MainActBinder(override val viewBind: ActivityMainBinding): BaseView<Group>
                     .show()
             }
         }
-        delayedFunction {
+        delayedFunction(2000) {
             viewBind.doitchAppbar.setExpanded(false)
         }
     }
