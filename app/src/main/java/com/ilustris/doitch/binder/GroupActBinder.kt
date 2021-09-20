@@ -68,7 +68,7 @@ class GroupActBinder(override val viewBind: ActivityGroupBinding, val groupID: S
             taskViews.add(Task(id = NEWTASKID))
             tasksRecyclerview.adapter = TaskAdapter(taskViews,
                 newTaskListener = { newTask ->
-                    val tasksArray = ArrayList(group.tasks)
+                    val tasksArray = ArrayList(taskViews)
                     tasksArray.add(newTask)
                     group.tasks = tasksArray.filter { task ->
                         task.id != NEWTASKID
@@ -76,13 +76,13 @@ class GroupActBinder(override val viewBind: ActivityGroupBinding, val groupID: S
                     presenter.updateData(group)
                 },
                 taskChangedListener = { it, index ->
-                    val tasksArray = ArrayList(group.tasks)
+                    val tasksArray = ArrayList(taskViews)
                     tasksArray[index] = it
                     group.tasks = tasksArray.filter { it.id != NEWTASKID }
                     presenter.updateData(group)
                 },
                 taskDeleteListener = { position ->
-                    val tasksArray = ArrayList(group.tasks)
+                    val tasksArray = ArrayList(taskViews)
                     tasksArray.removeAt(position)
                     group.tasks = tasksArray.filter { it.id != NEWTASKID }
                     presenter.updateData(group)

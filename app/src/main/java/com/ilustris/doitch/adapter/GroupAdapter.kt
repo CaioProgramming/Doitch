@@ -19,9 +19,14 @@ import com.silent.ilustriscore.core.utilities.delayedFunction
 private const val NEWGROUP = 0
 private const val GROUP = 1
 
-class GroupAdapter(val groupList: List<Group>,val createGroup: () -> Unit, val updateGroup: (Group) -> Unit): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class GroupAdapter(
+    val groupList: List<Group>,
+    val createGroup: () -> Unit,
+    val deleteGroup: (Group) -> Unit
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    inner class CreateGroupViewHolder(private val createGroupCardBinding: CreateGroupCardBinding): RecyclerView.ViewHolder(createGroupCardBinding.root) {
+    inner class CreateGroupViewHolder(private val createGroupCardBinding: CreateGroupCardBinding) :
+        RecyclerView.ViewHolder(createGroupCardBinding.root) {
 
         fun bind() {
             createGroupCardBinding.createGroupButton.setOnClickListener {
@@ -42,6 +47,10 @@ class GroupAdapter(val groupList: List<Group>,val createGroup: () -> Unit, val u
                         itemView.context, this,
                         groupViewBinding.groupTitle
                     )
+                }
+                groupViewBinding.groupCard.setOnLongClickListener {
+                    deleteGroup(this)
+                    false
                 }
                 groupViewBinding.groupProgress.max = tasks.size
                 delayedFunction {
