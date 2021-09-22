@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/social_card"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_margin="@dimen/margin_default_10dp"
+        android:stateListAnimator="@animator/list_animator"
+        app:cardBackgroundColor="@color/material_purple400"
+        app:cardCornerRadius="@dimen/radius_big_20dp">
+
+
+        <ImageView
+            android:id="@+id/social_icon"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"
+            app:tint="?android:textColorPrimary"
+            tools:src="@drawable/ic_iconmonstr_twitch_1" />
+
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

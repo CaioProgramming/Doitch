@@ -50,7 +50,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     private fun signIn() {
         val providers = listOf(
-            AuthUI.IdpConfig.EmailBuilder().build())
+            AuthUI.IdpConfig.GoogleBuilder().build(),
+            AuthUI.IdpConfig.EmailBuilder().build()
+        )
         startActivityForResult(
             AuthUI.getInstance().createSignInIntentBuilder()
             .setLogo(R.mipmap.ic_launcher)

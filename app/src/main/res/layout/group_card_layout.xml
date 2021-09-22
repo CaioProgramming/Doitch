@@ -8,16 +8,22 @@
         android:layout_width="180dp"
         android:layout_height="180dp"
         android:layout_margin="@dimen/margin_default_10dp"
+        android:shadowColor="?android:textColorPrimary"
+        android:shadowDx="-5"
+        android:shadowDy="5"
+        android:shadowRadius="1"
         android:stateListAnimator="@animator/list_animator"
         app:cardBackgroundColor="?attr/secondaryColor"
         app:cardCornerRadius="@dimen/radius_big_20dp">
 
         <com.google.android.material.progressindicator.LinearProgressIndicator
             android:id="@+id/group_progress"
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            app:trackColor="?attr/secondaryColor"
-            app:trackThickness="200dp"
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:rotation="-90"
+            app:indicatorColor="@color/colorAccent"
+            app:trackColor="@color/transparent"
+            app:trackThickness="180dp"
             tools:progress="80" />
 
         <LinearLayout
@@ -38,6 +44,7 @@
                 android:textColor="?android:textColorPrimary"
                 android:textStyle="bold"
                 android:transitionName="grouptitle"
+                app:drawableTint="?android:textColorPrimary"
                 tools:text="Academia" />
 
             <TextView

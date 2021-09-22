@@ -3,11 +3,12 @@ package com.ilustris.doitch.binder
 import android.app.Activity
 import android.graphics.Color
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.ilustris.doitch.R
 import com.ilustris.doitch.adapter.GroupAdapter
-import com.ilustris.doitch.base.models.CREATE_NEW_GROUP_ID
-import com.ilustris.doitch.base.models.Group
+import com.ilustris.doitch.base.models.*
 import com.ilustris.doitch.databinding.ActivityMainBinding
 import com.ilustris.doitch.dialog.NewGroupBottomSheet
 import com.silent.ilustriscore.core.model.DTOMessage
@@ -29,8 +30,8 @@ class MainActBinder(override val viewBind: ActivityMainBinding): BaseView<Group>
 
     override fun showListData(list: List<Group>) {
         super.showListData(list)
-        val array = ArrayList(list)
-        array.add(Group(id = CREATE_NEW_GROUP_ID))
+        val array = ArrayList(list.sortedByDescending { it.tasks.size })
+        array.addAll(Group.extraGroups())
         viewBind.groupRecycler.apply {
             adapter = GroupAdapter(array, {
                 NewGroupBottomSheet(context) { groupName ->
@@ -49,6 +50,26 @@ class MainActBinder(override val viewBind: ActivityMainBinding): BaseView<Group>
                     .setNegativeButton("Cancelar")
                     { dialog, which -> dialog.dismiss() }
                     .show()
+            }
+            layoutManager = GridLayoutManager(context, 2, RecyclerView.VERTICAL, false).apply {
+                spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+                    override fun getSpanSize(position: Int): Int {
+                        return when {
+                            array[position].id == ABOUT_HEADER -> {
+                                2
+                            }
+                            array[position].id == CREATE_NEW_GROUP_ID -> {
+                                2
+                            }
+                            array[position].isASocialCard() -> {
+                                1
+                            }
+                            else -> {
+                                1
+                            }
+                        }
+                    }
+                }
             }
         }
         delayedFunction(2000) {
